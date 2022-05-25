@@ -2,6 +2,8 @@ import  Express  from "express";
 import dotenv from "dotenv";
 import mustache from "mustache-express";
 import path from "path";
+import mainRout from './router/index';
+
 
 dotenv.config();
 
@@ -17,6 +19,12 @@ server.use(Express.static(path.join(__dirname,'../public')));
 
 
 //---------------------------------------------//rotas
+server.use(mainRout);
+
+server.use((req,res)=>{
+    res.send('Pagina não encontrada !!');
+
+})
 
 
 server.listen(process.env.PORT);
