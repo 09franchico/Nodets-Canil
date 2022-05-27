@@ -1,20 +1,48 @@
 import { Request,Response } from "express";
-
+import { createMenuobject } from "../helpers/createMenuObject";
 
 export const home = (req:Request , res:Response)=>{
-    res.render('pages/page')
+    res.render('pages/page',{
+        menu:createMenuobject('all'),
+        banner:{
+            title:'Todos os animais',
+            background:'allanimals.jpg',
+
+        }
+    })
 
 }
 export const dogs = (req:Request , res:Response)=>{
-    //res.render('pages/dogs')
+    res.render('pages/page',{
+        menu:createMenuobject('dog'),
+        banner:{
+            title:'Cachorros',
+            background:'banner_dog.jpg',
+
+        }
+    })
 
 }
 export const cats = (req:Request , res:Response)=>{
-    //res.render('pages/cats')
+    res.render('pages/page',{
+        menu:createMenuobject('cat'),
+        banner:{
+            title:'Gatos',
+            background:'banner_cat.jpg',
+
+        }
+    })
 
 }
 export const fishes = (req:Request , res:Response)=>{
-    //res.render('pages/fishes')
+    res.render('pages/page',{
+        menu:createMenuobject('fish'),
+        banner:{
+            title:'Peixes',
+            background:'banner_fish.jpg',
+
+        }
+    })
 
 }
 
